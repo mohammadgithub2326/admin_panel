@@ -270,6 +270,102 @@ className={`flex items-center py-3 px-4 w-full text-left cursor-pointer !rounded
 </li>
 </ul>
 </div>
+  <div className="absolute bottom-0 left-0 right-0 p-4">
+<div className={`flex items-center ${sidebarCollapsed ? 'justify-center' : 'justify-between'}`}>
+<button
+onClick={() => document.getElementById('helpDialog').classList.remove('hidden')}
+className="text-white hover:text-indigo-200 cursor-pointer !rounded-button whitespace-nowrap"
+>
+<i className="fas fa-question-circle text-xl"></i>
+{!sidebarCollapsed && <span className="ml-2">Help</span>}
+</button>
+{/* Help Dialog */}
+<div
+id="helpDialog"
+className="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"
+onClick={(e) => {
+if (e.target.id === 'helpDialog') {
+document.getElementById('helpDialog').classList.add('hidden');
+}
+}}
+>
+<div className="bg-white rounded-xl shadow-lg w-full max-w-4xl max-h-[80vh] overflow-hidden">
+<div className="p-6 border-b border-gray-200 flex justify-between items-center">
+<h2 className="text-2xl font-bold text-gray-800">Help Center</h2>
+<button
+onClick={() => document.getElementById('helpDialog').classList.add('hidden')}
+className="text-gray-400 hover:text-gray-600 !rounded-button whitespace-nowrap"
+>
+<i className="fas fa-times text-xl"></i>
+</button>
+</div>
+<div className="p-6">
+<div className="mb-6">
+<div className="relative">
+<span className="absolute inset-y-0 left-0 flex items-center pl-3">
+<i className="fas fa-search text-gray-400"></i>
+</span>
+<input
+type="text"
+placeholder="Search help topics..."
+className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+/>
+</div>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div className="space-y-4">
+<h3 className="text-lg font-semibold text-gray-800 mb-4">Frequently Asked Questions</h3>
+<div className="space-y-3">
+<div className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer">
+<p className="font-medium text-gray-800">How do I manage student attendance?</p>
+</div>
+<div className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer">
+<p className="font-medium text-gray-800">How to generate report cards?</p>
+</div>
+<div className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer">
+<p className="font-medium text-gray-800">Setting up class schedules</p>
+</div>
+</div>
+</div>
+<div className="space-y-4">
+<h3 className="text-lg font-semibold text-gray-800 mb-4">Video Tutorials</h3>
+<div className="space-y-3">
+<div className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer flex items-center">
+<i className="fas fa-play-circle text-indigo-600 text-xl mr-3"></i>
+<div>
+<p className="font-medium text-gray-800">Getting Started Guide</p>
+<p className="text-sm text-gray-500">5:30 mins</p>
+</div>
+</div>
+<div className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer flex items-center">
+<i className="fas fa-play-circle text-indigo-600 text-xl mr-3"></i>
+<div>
+<p className="font-medium text-gray-800">Advanced Features</p>
+<p className="text-sm text-gray-500">8:45 mins</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div className="mt-6 p-6 bg-indigo-50 rounded-xl">
+<h3 className="text-lg font-semibold text-gray-800 mb-4">Need More Help?</h3>
+<div className="flex items-center justify-between">
+<p className="text-gray-600">Contact our support team for personalized assistance</p>
+<button className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 !rounded-button whitespace-nowrap">
+Contact Support
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+{!sidebarCollapsed && (
+<button className="text-white hover:text-indigo-200 cursor-pointer !rounded-button whitespace-nowrap">
+<i className="fas fa-sign-out-alt text-xl"></i>
+</button>
+)}
+</div>
+</div>
 </div>
 {/* Main Content */}
 <div className="flex-1 flex flex-col overflow-hidden">
